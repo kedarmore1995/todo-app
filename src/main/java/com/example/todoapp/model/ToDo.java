@@ -1,5 +1,6 @@
 package com.example.todoapp.model;
 
+import com.example.todoapp.dto.TodoDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,9 +16,12 @@ public class ToDo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private int id;
-    private String description;
-    private boolean completed;
+        public int id;
+        public String description;
+        public boolean completed = false;
 
-
+    public ToDo(TodoDto todoDto) {
+        this.completed = todoDto.completed;
+        this.description = todoDto.description;
+    }
 }
